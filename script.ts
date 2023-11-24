@@ -205,6 +205,8 @@ callBtn.addEventListener("click", function (e) {
   closeCallBtn.addEventListener("click", function () {
     callContainer.innerHTML = "";
     callContainer.classList = "";
+    firstUser.numberCall++;
+    numberCallInput.innerText = firstUser.numberCall;
   });
 });
 
