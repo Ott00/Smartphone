@@ -47,66 +47,6 @@ const firstUser = new User("Dario", "Bianchi", 50, 0);
 const secondUser = new User("Dan", "Rossi", 20, 2);
 const thirdUser = new User("Zak", "Verdi", 40, 5);
 
-const renderUserNameNav: any = document.getElementById(
-  "user-name-nav"
-) as HTMLSpanElement;
-
-const renderCharge: any = document.getElementById("charge") as HTMLSpanElement;
-
-const numberCallInput: any = document.getElementById(
-  "number-call"
-) as HTMLSpanElement;
-
-const rechargeBtn = document.getElementById(
-  "recharge-btn"
-) as HTMLButtonElement;
-
-const rechargeInput = document.getElementById(
-  "recharge-input"
-) as HTMLButtonElement;
-
-const callContainer: any = document.getElementById(
-  "call-container"
-) as HTMLDivElement;
-
-const numberInput: any = document.getElementById(
-  "number-input"
-) as HTMLInputElement;
-
-const callBtn = document.getElementById("call-btn") as HTMLButtonElement;
-
-rechargeBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  const rechargeValue: number = parseInt(rechargeInput.value);
-  rechargeInput.value = "";
-  firstUser.recharge(rechargeValue);
-  renderCharge.innerText = firstUser.charge;
-});
-
-callBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  const numberInputValue: string = numberInput.value;
-  callContainer.classList =
-    "px-2 mt-2 border border-1 rounded-3 d-flex flex-column align-items-center";
-  callContainer.innerHTML = `
-  <p class="fw-bold text-white m-0 mt-3">${numberInputValue}</p>
-  <p class="fs-7 text-white m-0 mt-1">Calling...</p>
-  <button
-    type="button"
-    id="close-call"
-    class="btn btn-close-call mt-3 mb-3"
-  >
-    <i class="bi bi-telephone-x-fill"></i>
-  </button>
-`;
-});
-
-window.onload = (): void => {
-  renderCharge.innerText = firstUser.charge;
-  renderUserNameNav.innerText = firstUser.name;
-  numberCallInput.innerText = firstUser.getNumberCalls();
-};
-
 console.log(`User: ${firstUser.name} ${firstUser.surname}
 Carica: ${firstUser.charge}€
 Numero Chiamate: ${firstUser.numberCall}
@@ -193,6 +133,68 @@ console.log(`User: ${thirdUser.name} ${thirdUser.surname}
 Carica: ${thirdUser.charge}€
 Numero Chiamate: ${thirdUser.numberCall}
 `);
+
+// UI DA FINIRE
+
+const renderUserNameNav: any = document.getElementById(
+  "user-name-nav"
+) as HTMLSpanElement;
+
+const renderCharge: any = document.getElementById("charge") as HTMLSpanElement;
+
+const numberCallInput: any = document.getElementById(
+  "number-call"
+) as HTMLSpanElement;
+
+const rechargeBtn = document.getElementById(
+  "recharge-btn"
+) as HTMLButtonElement;
+
+const rechargeInput = document.getElementById(
+  "recharge-input"
+) as HTMLButtonElement;
+
+const callContainer: any = document.getElementById(
+  "call-container"
+) as HTMLDivElement;
+
+const numberInput: any = document.getElementById(
+  "number-input"
+) as HTMLInputElement;
+
+const callBtn = document.getElementById("call-btn") as HTMLButtonElement;
+
+rechargeBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const rechargeValue: number = parseInt(rechargeInput.value);
+  rechargeInput.value = "";
+  firstUser.recharge(rechargeValue);
+  renderCharge.innerText = firstUser.charge;
+});
+
+callBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const numberInputValue: string = numberInput.value;
+  callContainer.classList =
+    "px-2 mt-2 border border-1 rounded-3 d-flex flex-column align-items-center";
+  callContainer.innerHTML = `
+  <p class="fw-bold text-white m-0 mt-3">${numberInputValue}</p>
+  <p class="fs-7 text-white m-0 mt-1">Calling...</p>
+  <button
+    type="button"
+    id="close-call"
+    class="btn btn-close-call mt-3 mb-3"
+  >
+    <i class="bi bi-telephone-x-fill"></i>
+  </button>
+`;
+});
+
+window.onload = (): void => {
+  renderCharge.innerText = firstUser.charge;
+  renderUserNameNav.innerText = firstUser.name;
+  numberCallInput.innerText = firstUser.getNumberCalls();
+};
 
 // DA RAGIONARE PROSSIMAMENTE
 // const userName = document.getElementById("user-name") as HTMLButtonElement;

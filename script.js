@@ -26,33 +26,6 @@ var User = /** @class */ (function () {
 var firstUser = new User("Dario", "Bianchi", 50, 0);
 var secondUser = new User("Dan", "Rossi", 20, 2);
 var thirdUser = new User("Zak", "Verdi", 40, 5);
-var renderUserNameNav = document.getElementById("user-name-nav");
-var renderCharge = document.getElementById("charge");
-var numberCallInput = document.getElementById("number-call");
-var rechargeBtn = document.getElementById("recharge-btn");
-var rechargeInput = document.getElementById("recharge-input");
-var callContainer = document.getElementById("call-container");
-var numberInput = document.getElementById("number-input");
-var callBtn = document.getElementById("call-btn");
-rechargeBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    var rechargeValue = parseInt(rechargeInput.value);
-    rechargeInput.value = "";
-    firstUser.recharge(rechargeValue);
-    renderCharge.innerText = firstUser.charge;
-});
-callBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    var numberInputValue = numberInput.value;
-    callContainer.classList =
-        "px-2 mt-2 border border-1 rounded-3 d-flex flex-column align-items-center";
-    callContainer.innerHTML = "\n  <p class=\"fw-bold text-white m-0 mt-3\">".concat(numberInputValue, "</p>\n  <p class=\"fs-7 text-white m-0 mt-1\">Calling...</p>\n  <button\n    type=\"button\"\n    id=\"close-call\"\n    class=\"btn btn-close-call mt-3 mb-3\"\n  >\n    <i class=\"bi bi-telephone-x-fill\"></i>\n  </button>\n");
-});
-window.onload = function () {
-    renderCharge.innerText = firstUser.charge;
-    renderUserNameNav.innerText = firstUser.name;
-    numberCallInput.innerText = firstUser.getNumberCalls();
-};
 console.log("User: ".concat(firstUser.name, " ").concat(firstUser.surname, "\nCarica: ").concat(firstUser.charge, "\u20AC\nNumero Chiamate: ").concat(firstUser.numberCall, "\n"));
 console.log("User: ".concat(secondUser.name, " ").concat(secondUser.surname, "\nCarica: ").concat(secondUser.charge, "\u20AC\nNumero Chiamate: ").concat(secondUser.numberCall, "\n"));
 console.log("User: ".concat(thirdUser.name, " ").concat(thirdUser.surname, "\nCarica: ").concat(thirdUser.charge, "\u20AC\nNumero Chiamate: ").concat(thirdUser.numberCall, "\n"));
@@ -81,6 +54,34 @@ console.log("");
 console.log("User: ".concat(firstUser.name, " ").concat(firstUser.surname, "\nCarica: ").concat(firstUser.charge, "\u20AC\nNumero Chiamate: ").concat(firstUser.numberCall, "\n"));
 console.log("User: ".concat(secondUser.name, " ").concat(secondUser.surname, "\nCarica: ").concat(secondUser.charge, "\u20AC\nNumero Chiamate: ").concat(secondUser.numberCall, "\n"));
 console.log("User: ".concat(thirdUser.name, " ").concat(thirdUser.surname, "\nCarica: ").concat(thirdUser.charge, "\u20AC\nNumero Chiamate: ").concat(thirdUser.numberCall, "\n"));
+// UI DA FINIRE
+var renderUserNameNav = document.getElementById("user-name-nav");
+var renderCharge = document.getElementById("charge");
+var numberCallInput = document.getElementById("number-call");
+var rechargeBtn = document.getElementById("recharge-btn");
+var rechargeInput = document.getElementById("recharge-input");
+var callContainer = document.getElementById("call-container");
+var numberInput = document.getElementById("number-input");
+var callBtn = document.getElementById("call-btn");
+rechargeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    var rechargeValue = parseInt(rechargeInput.value);
+    rechargeInput.value = "";
+    firstUser.recharge(rechargeValue);
+    renderCharge.innerText = firstUser.charge;
+});
+callBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    var numberInputValue = numberInput.value;
+    callContainer.classList =
+        "px-2 mt-2 border border-1 rounded-3 d-flex flex-column align-items-center";
+    callContainer.innerHTML = "\n  <p class=\"fw-bold text-white m-0 mt-3\">".concat(numberInputValue, "</p>\n  <p class=\"fs-7 text-white m-0 mt-1\">Calling...</p>\n  <button\n    type=\"button\"\n    id=\"close-call\"\n    class=\"btn btn-close-call mt-3 mb-3\"\n  >\n    <i class=\"bi bi-telephone-x-fill\"></i>\n  </button>\n");
+});
+window.onload = function () {
+    renderCharge.innerText = firstUser.charge;
+    renderUserNameNav.innerText = firstUser.name;
+    numberCallInput.innerText = firstUser.getNumberCalls();
+};
 // DA RAGIONARE PROSSIMAMENTE
 // const userName = document.getElementById("user-name") as HTMLButtonElement;
 // const userSurname = document.getElementById(
