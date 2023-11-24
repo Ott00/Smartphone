@@ -63,6 +63,11 @@ var rechargeInput = document.getElementById("recharge-input");
 var callContainer = document.getElementById("call-container");
 var numberInput = document.getElementById("number-input");
 var callBtn = document.getElementById("call-btn");
+var resetCallsBtn = document.getElementById("btn-reset-calls");
+resetCallsBtn.addEventListener("click", function () {
+    firstUser.resetCalls();
+    numberCallInput.innerText = firstUser.numberCall;
+});
 rechargeBtn.addEventListener("click", function (e) {
     e.preventDefault();
     var rechargeValue = parseInt(rechargeInput.value);
@@ -76,6 +81,11 @@ callBtn.addEventListener("click", function (e) {
     callContainer.classList =
         "px-2 mt-2 border border-1 rounded-3 d-flex flex-column align-items-center";
     callContainer.innerHTML = "\n  <p class=\"fw-bold text-white m-0 mt-3\">".concat(numberInputValue, "</p>\n  <p class=\"fs-7 text-white m-0 mt-1\">Calling...</p>\n  <button\n    type=\"button\"\n    id=\"close-call\"\n    class=\"btn btn-close-call mt-3 mb-3\"\n  >\n    <i class=\"bi bi-telephone-x-fill\"></i>\n  </button>\n");
+    var closeCallBtn = document.getElementById("close-call");
+    closeCallBtn.addEventListener("click", function () {
+        callContainer.innerHTML = "";
+        callContainer.classList = "";
+    });
 });
 window.onload = function () {
     renderCharge.innerText = firstUser.charge;

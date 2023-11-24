@@ -164,6 +164,15 @@ const numberInput: any = document.getElementById(
 
 const callBtn = document.getElementById("call-btn") as HTMLButtonElement;
 
+const resetCallsBtn = document.getElementById(
+  "btn-reset-calls"
+) as HTMLButtonElement;
+
+resetCallsBtn.addEventListener("click", function () {
+  firstUser.resetCalls();
+  numberCallInput.innerText = firstUser.numberCall;
+});
+
 rechargeBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const rechargeValue: number = parseInt(rechargeInput.value);
@@ -188,6 +197,15 @@ callBtn.addEventListener("click", function (e) {
     <i class="bi bi-telephone-x-fill"></i>
   </button>
 `;
+
+  const closeCallBtn = document.getElementById(
+    "close-call"
+  ) as HTMLButtonElement;
+
+  closeCallBtn.addEventListener("click", function () {
+    callContainer.innerHTML = "";
+    callContainer.classList = "";
+  });
 });
 
 window.onload = (): void => {
